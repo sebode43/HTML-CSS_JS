@@ -1,0 +1,16 @@
+#pt{
+    color: green;
+    text-decoration: underline;
+    font-style: italic;
+}
+.blue{
+    color: blue;
+}
+span{
+    color: red;
+    font-size: 1.25rem;
+}
+#text{
+    border: 1px solid thistle;
+    font-family: 'Trebuchet MS';
+}
