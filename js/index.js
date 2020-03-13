@@ -14,7 +14,13 @@ const clickme3 = () => {
     let num1 = 0;
     const display = () =>{
         document.getElementById("num1").value = num1;
-        document.getElementById("num2").value = ' ';
+        num1.value = num1;
+        var num1style = numCtrl.style
+        if(num1 %3 == 0){
+            num1style.color = "green";
+        }else{
+            num1style.color = "blue";
+        }
     }
     const add = () => {
     let numCtrl = document.getElementById("num2").value;
@@ -39,4 +45,15 @@ const div = () => {
 const clr = () =>{
     num1 = 0;
     display();
+}
+
+const convertc = () =>{
+    let c = +(document.getElementById("Celsius").value);
+    let f = (c * 9 / 5) + 32;
+    document.getElementById("Farenheitans").innerText = f;
+}
+const convertf = () =>{
+    let f = +(document.getElementById("Farenheit").value);
+    let c = 5/9 * (f - 32);
+    document.getElementById("Celsiusans").innerText = c;
 }

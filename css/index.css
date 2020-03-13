@@ -14,3 +14,7 @@ span{
     border: 1px solid thistle;
     font-family: 'Trebuchet MS';
 }
+*
+{
+  text-align: center;
+}
