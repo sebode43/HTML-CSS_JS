@@ -9,15 +9,34 @@ const clickme3 = () => {
     let lblCtrl = document.getElementById("lbl")
     lblCtrl.innerHTML = "<h3>"+val+"</h3>";
 } //constant - function cannot be changed
-const calc = () => {
-    let numCtrl = document.getElementById("num2");
-    let val2 = numCtrl.value;
-    let ctrl1 = document.getElementById("num1");
-    ctrl1 = 0;
-    ctrl1 = ctrl1 + val2;
-    let ansCtrl = document.getElementById("ans")
-    ansCtrl.value = +val2 + +ctrl1;
-    let clearCtrl = document.getElementById("clear")
-    ctrl1 = 0;
+
     
+    let num1 = 0;
+    const display = () =>{
+        document.getElementById("num1").value = num1;
+        document.getElementById("num2").value = ' ';
+    }
+    const add = () => {
+    let numCtrl = document.getElementById("num2").value;
+    num1 += +numCtrl;
+    display();
+}
+const sub = () => {
+    let numCtrl = document.getElementById("num2").value;
+    num1 -= +numCtrl;
+    display();
+}
+const mul = () => {
+    let numCtrl = document.getElementById("num2").value;
+    num1 *= +numCtrl;
+    display();
+}
+const div = () => {
+    let numCtrl = document.getElementById("num2").value;
+    num1 /= +numCtrl;
+    display();
+}
+const clr = () =>{
+    num1 = 0;
+    display();
 }
