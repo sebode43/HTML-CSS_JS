@@ -1,5 +1,5 @@
 let vendor = {
-    id: 6,
+    id: 10,
     code: "Mjr",
     name: "Meijer",
     address: "1243 Address",
@@ -13,7 +13,7 @@ let vendor = {
 $().ready(() => {
     $.ajax({
         method: "DELETE",
-        url: "http://localhost:61984/api/vendors/6",
+        url: "http://localhost:61984/api/vendors/10",
         data: JSON.stringify(vendor),
         contentType: "application/json",
     })
