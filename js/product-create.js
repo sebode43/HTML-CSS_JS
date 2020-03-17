@@ -4,7 +4,7 @@ let vendors = [];
 
 
 $().ready(() => {
-    $.getJSON(`http://localhost:61984/api/products`)
+    $.getJSON(`http://localhost:61984/api/vendors`)
     .done((res) => {
         vendors = res;
         console.log("Vendors:", res);
