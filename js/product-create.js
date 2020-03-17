@@ -1,37 +1,46 @@
-let create_product = null;
-$("button").click(() => {
-    for(let product of create_product){
-        let id = 0;
-        $("#partnbr").val;
-        $("#productname").val;
-        $("#price").val;
-        $("#unit").val;
-        $("#photopath").val;
-        $("#vendorid").val;
-        out (product);
-    }
-})
-
+const baseurl = `http://localhost:61984/api/products`;
+let product = {};
 let vendors = [];
-for(let vend of vendors){
-    let option = `<option value = "${vend.id}">"${vend.name}"</option>`;
-}
-<select id = "selVendor">
-    <option value = "" selected>display</option>
-</select>
+
 
 $().ready(() => {
-    $.ajax({
-        method: "POST",
-        url: "http://localhost:61984/api/products",
-        data: JSON.stringify(product),
-        contentType: "application/json",
-    })
+    $.getJSON(`http://localhost:61984/api/products`)
     .done((res) => {
-        console.log(res);
-        click();
-    })
-    .fail((err) => {
-        console.error("Error:", err);
+        vendors = res;
+        console.log("Vendors:", res);
+        init();
     });
-})
+    $("#Create").click(() => {
+        let product = dataFromPage();
+        $.ajax({
+            method: "POST",
+            url: `${baseurl}`,
+            data: JSON.stringify(product),
+            contentType: "application/json",
+    })
+            .done((res) => {
+                console.log("Create Success", res);
+            })
+            .fail((err) => {
+                console.error("Error:", err);
+            });
+        });
+});
+const init = () => {
+    console.log("init");
+    let select = $("#tvendors");
+    select.html("");
+    for(let v of vendors){
+        select.append(`<option value = "${v.id}">${v.name}</option>`);
+    }
+};
+const dataFromPage = () => {
+    let product = {};
+    product.id = +$("tid") .val();   
+    product.partNbr = $("#partnbr").val();
+    product.Name = $("#productname").val();
+    product.price = $("#price").val();
+    product.unit = $("#unit").val();
+    product.vendorId = $("#tvendors").children("option:selected").val();
+        return product;
+};
